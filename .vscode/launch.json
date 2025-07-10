@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Python Debugger: Train H1 Transformer Flat Terrain",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/protomotions/train_agent.py",
+            "args": [
+                "+exp=full_body_tracker/transformer_flat_terrain",
+                "+robot=h1",
+                "+simulator=isaaclab",
+                "+experiment_name=full_body_tracker",
+                "motion_file=data/motions/h1_walk.npy",
+                "headless=False",
+                "agent.config.batch_size=1024",
+                "num_envs=32",
+            ],
+            "console": "integratedTerminal"
+        },
+
+        {
+            "name": "Python Debugger: Train Aidin Humanoid Transformer Flat Terrain",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/protomotions/train_agent.py",
+            "args": [
+                "+exp=full_body_tracker/transformer_flat_terrain",
+                "+robot=aidin_humanoid",
+                "+simulator=isaaclab",
+                "+experiment_name=full_body_tracker",
+                "motion_file=data/motions/aidin_humanoid_B1_stand_to_walk_poses.npz",
+                // "motion_file=data/motions/h1_walk.npy",
+
+                "headless=False",
+                "agent.config.batch_size=1024",
+                "num_envs=32",
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
