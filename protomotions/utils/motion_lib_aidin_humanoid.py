@@ -103,7 +103,7 @@ class AidinHumanoidMotionLib(MotionLib):
             motion.global_angular_velocity = motion.cvel[:, 1:, 3:]  # Exclude the root
             motion.global_root_angular_velocity = motion.cvel[:, 1, 3:] # Pelvis is the root
             motion.global_root_velocity = motion.cvel[:, 1, :3]  # Pelvis is the root
-            motion.global_rotation = motion.xquat[:, 1:]  # Exclude the root
+            motion.global_rotation = motion.xquat[:, 1:, [1, 2, 3, 0]]  # Exclude the root
             motion.global_rotation_mat = torch.stack(
                 [quaternion_to_matrix(q, w_last=True) for q in motion.global_rotation], dim=0
             )
