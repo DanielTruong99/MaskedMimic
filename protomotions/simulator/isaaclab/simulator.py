@@ -627,6 +627,7 @@ class IsaacLabSimulator(Simulator):
     # =====================================================
     # Group 6: Rendering & Visualization
     # =====================================================
+    _is_set = False
     def render(self) -> None:
         """
         Render the simulation view. Initializes or updates the camera if the simulator is not in headless mode.
@@ -640,6 +641,8 @@ class IsaacLabSimulator(Simulator):
                 self._perspective_view = PerspectiveViewer()
                 self._init_camera()
             else:
+                if not self._is_set:
+                    self._is_set = True
                 self._update_camera()
         super().render()
 

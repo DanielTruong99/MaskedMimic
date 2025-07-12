@@ -377,7 +377,7 @@ H1_CFG = ArticulationCfg(
 
 AIDIN_HUMANOID_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path="/home/humanoid2/DanielTruong/ProtoMotions/protomotions/data/assets/usd/aidin_humanoid/aidin_humanoid.usd",
+        usd_path="/home/humanoid/DanielWorkspace/MaskedMimic/protomotions/data/assets/usd/aidin_humanoid/aidin_humanoid.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
@@ -389,7 +389,7 @@ AIDIN_HUMANOID_CFG = ArticulationCfg(
             max_depenetration_velocity=1.0,
         ),
         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
-            enabled_self_collisions=False,
+            enabled_self_collisions=True,
             solver_position_iteration_count=4,
             solver_velocity_iteration_count=4,
         ),

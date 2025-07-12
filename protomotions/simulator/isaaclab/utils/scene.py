@@ -2,7 +2,7 @@ from protomotions.envs.base_env.env_utils.terrains.flat_terrain import FlatTerra
 from protomotions.simulator.base_simulator.config import RobotConfig
 import isaaclab.sim as sim_utils
 from isaaclab.assets import ArticulationCfg, AssetBaseCfg
-from isaaclab.actuators import IdealPDActuatorCfg
+from isaaclab.actuators import IdealPDActuatorCfg, ImplicitActuatorCfg
 from isaaclab.utils import configclass
 from isaaclab.scene import InteractiveSceneCfg
 from isaaclab.sensors import ContactSensorCfg
@@ -127,12 +127,12 @@ class SceneCfg(InteractiveSceneCfg):
 
             # ImplicitActuatorCfg IdealPDActuatorCfg
             actuators = {
-                robot_config.dof_names[i]: IdealPDActuatorCfg(
+                robot_config.dof_names[i]: ImplicitActuatorCfg(
                     joint_names_expr=[robot_config.dof_names[i]],
                     effort_limit=robot_config.dof_effort_limits[i],
                     velocity_limit=robot_config.dof_vel_limits[i],
-                    stiffness=0,
-                    damping=0,
+                    stiffness=robot_config.control.stiffness[robot_config.dof_names[i]],
+                    damping=robot_config.control.damping[robot_config.dof_names[i]],
                     armature=robot_config.dof_armatures[i],
                     friction=robot_config.dof_joint_frictions[i],
                 ) for i in range(len(robot_config.dof_names))

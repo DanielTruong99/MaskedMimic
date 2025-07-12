@@ -15,10 +15,11 @@
                 "+robot=h1",
                 "+simulator=isaaclab",
                 "+experiment_name=full_body_tracker",
+                "+terrain=flat",
                 "motion_file=data/motions/h1_walk.npy",
                 "headless=False",
-                "agent.config.batch_size=1024",
-                "num_envs=32",
+                "agent.config.batch_size=96",
+                "num_envs=3",
             ],
             "console": "integratedTerminal"
         },
@@ -33,14 +34,31 @@
                 "+robot=aidin_humanoid",
                 "+simulator=isaaclab",
                 "+experiment_name=full_body_tracker",
+                "+opt=wandb",
                 "motion_file=data/motions/aidin_humanoid_B1_stand_to_walk_poses.npz",
                 // "motion_file=data/motions/h1_walk.npy",
 
                 "headless=False",
                 "agent.config.batch_size=1024",
-                "num_envs=32",
+                "num_envs=256",
+                "agent.config.num_steps=24"
             ],
             "console": "integratedTerminal"
-        }
+        },
+
+        {
+            "name": "Python Debugger: Play Aidin Humanoid Transformer Flat Terrain",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/protomotions/eval_agent.py",
+            "args": [
+                "+robot=aidin_humanoid",
+                "+simulator=isaaclab",
+                // "+opt=wandb",
+                "+checkpoint=results/full_body_tracker/last.ckpt",
+                "+motion_file=data/motions/aidin_humanoid_B1_stand_to_walk_poses.npz",
+            ],
+            "console": "integratedTerminal"
+        }        
     ]
 }
