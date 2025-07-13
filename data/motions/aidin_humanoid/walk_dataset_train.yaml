@@ -1,0 +1,46 @@
+motions:
+- file: aidin_humanoid_B1_stand_to_walk_poses.npz
+  fps: 40.0
+  idx: 0
+  sub_motions:
+  - idx: 0
+    timings:
+      end: 6.150
+      start: 0.0
+    weight: 1.0
+- file: B10_walk_turn_left_45_poses.npz
+  fps: 40.0
+  idx: 1
+  sub_motions:
+  - idx: 1
+    timings:
+      end: 7.850
+      start: 0.0
+    weight: 1.0
+- file: B9_walk_turn_left_90_poses.npz
+  fps: 40.0
+  idx: 2
+  sub_motions:
+  - idx: 2
+    timings:
+      end: 7.025
+      start: 0.0
+    weight: 1.0
+- file: B13_walk_turn_right_45_poses.npz
+  fps: 40.0
+  idx: 3
+  sub_motions:
+  - idx: 3
+    timings:
+      end: 8.275
+      start: 0.0
+    weight: 1.0
+- file: B12_walk_turn_right_90_poses.npz
+  fps: 40.0
+  idx: 4
+  sub_motions:
+  - idx: 4
+    timings:
+      end: 7.7
+      start: 0.0
+    weight: 1.0
